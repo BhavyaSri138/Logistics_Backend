@@ -15,8 +15,8 @@ app.use(cors())
 dbcon('mongodb+srv://manikanta:manikanta@cluster0.5uoum.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0')
 
 
-app.use('/',authRouter)
-app.use('/',orderRouter)
+app.use('/authentication',authRouter)
+app.use('/orders',orderRouter)
 
 
 app.listen(3000,() =>{

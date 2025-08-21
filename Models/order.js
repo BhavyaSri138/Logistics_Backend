@@ -99,6 +99,6 @@ shipmentSchema.pre("save", function (next) {
   next();
 });
 
-const Shipment = mongoose.model("Shipment", shipmentSchema);
+const order = mongoose.model("orders", shipmentSchema);
 
-module.exports = Shipment;
+module.exports = order;

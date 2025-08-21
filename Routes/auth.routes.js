@@ -1,13 +1,13 @@
 const express=require('express')
-const {registerUser,loginUser,updatePassword}=require('../Controllers/auth.controller')
+const {registerUser,loginUser}=require('../Controllers/auth.controller')
 
 const authRouter=express.Router()
 
 
 
-authRouter.post('/',registerUser)
-authRouter.post('/',loginUser)
-authRouter.patch('/',updatePassword)
+authRouter.post('/signup',registerUser)
+authRouter.post('/login',loginUser)
+// authRouter.patch('/updatepassword',updatePassword)
 
 
 
