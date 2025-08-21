@@ -3,7 +3,7 @@ const cors=require('cors')
 const dotenv=require('dotenv')
 const dbcon=require('./DBCon/dbcon')
 const authRouter=require('./Routes/auth.routes')
-const orderRouter=require('./Routes/order.routes')
+const {orderRouter,shipmentRouter}=require('./Routes/order.routes')
 
 const app=express()
 
@@ -17,6 +17,7 @@ dbcon('mongodb+srv://manikanta:manikanta@cluster0.5uoum.mongodb.net/?retryWrites
 
 app.use('/authentication',authRouter)
 app.use('/orders',orderRouter)
+app.use('/shipments',shipmentRouter)
 
 
 app.listen(3000,() =>{
