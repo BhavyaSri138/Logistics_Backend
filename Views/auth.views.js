@@ -10,7 +10,8 @@ const newRegisterUser=(elementaryModel)=>{
                 message:'User already exists'
              })
           }
-          const newUser=await elementaryModel.create(details)
+          const newUser=new elementaryModel(details)
+          await newUser.save()
           res.status(201).json({
             message:'User successfully completed',
             newUser
@@ -35,14 +36,16 @@ const newLoginUser=(elementaryModel)=>{
                   message:'Invalide email or password'
                 })
             }
-            const comparepassword=await elementaryModel.comparePassword(details.Password)
-            if(!comparepassword){
+            console.log(findUser)
+            const comparepassword1=await findUser.comparePassword(details.password)
+      
+            if(!comparepassword1){
                return res.status(400).json({
                   message:'Invalide email or password'
                 })
             }
 
-            const token=await elementaryModel.generateAuthToken(jwt)
+            const token=await findUser.generateAuthToken(jwt)
             res.status(201).json({
             message:'User successfully completed',
             findUser,

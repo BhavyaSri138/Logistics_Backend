@@ -3,7 +3,7 @@ const {newRegisterUser,newLoginUser}=require('../Views/auth.views')
 
 const registerUser=newRegisterUser(authModel)
 const loginUser=newLoginUser(authModel)
-// const updatePassword=newUpdatePassword(authModel)
+
 
 
 

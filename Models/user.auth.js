@@ -32,7 +32,7 @@ const authSchema=new mongoose.Schema({
     } 
 })
 
-authSchema.pre('create',async function (next) {
+authSchema.pre('save',async function (next) {
      try{
         if(!this.isModified('password')) return next()
         const salt=await bcrypt.genSalt(10)
